@@ -1,74 +1,97 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform,ScrollView, SafeAreaView, View,Text } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import CustomInput from '@/components/CustomInput';
+import { Ionicons } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
+import SmallDisplayCard from '@/components/Cards/SmallDisplayCard';
+
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+    <ScrollView>
+    <SafeAreaView style={{ flex: 1, paddingTop:50,paddingHorizontal:15, height: '100%', backgroundColor: '#fff' }}>
+      <StatusBar translucent={false}/>
+      <ThemedView style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 8,  
+        marginBottom: 10,     
+      }}>
+      <CustomInput/>
         <HelloWave />
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      <View >
+      <Text style={{fontSize: 24, fontWeight: 'bold', marginVertical: 10, marginBottom: 14, paddingLeft:2}}>
+      Recommended
+      </Text>
+      <ScrollView
+      horizontal={true}
+      contentContainerStyle={{gap: 20, paddingBottom:20}}
+      showsHorizontalScrollIndicator={false}   
+      >
+      <View style={{width:289}}>
+        <View style={{ width:289 ,height:176,borderRadius:16, position:'relative', overflow:'hidden'}}>
+          {/* <Image style={{width:289 , position:'absolute'}}  source={require('@/assets/images/vrr.png')}/> */}
+          <Image style={{width:289 ,height:176, position:'absolute'}}  source={ {uri: 'https://www.clariontech.com/hubfs/MicrosoftTeams-image%20%2813%29-1.png'} }/>
+        
+        </View>
+        <Text style={{fontSize: 16, fontWeight: 'bold', marginVertical: 10, paddingLeft:2}}>
+        New VR Headsets That Will Shape the Metaverse
+        </Text>
+        <View className="dateandtime" style={{width:'100%',flexDirection:'row', alignItems:'center',justifyContent:'space-between'}}>
+        <Text style={{ fontSize:10, color:'#333333' }}>By: Mason Eduard</Text>
+        <Text style={{ fontSize:10, color:'#828282', fontWeight:'light' }}>Oct 12, 2021
+          <Text> • </Text>
+          <Text> 3344 views </Text>
+        </Text>
+        </View>
+        </View>
+      <View style={{width:289}}>
+        <View style={{ width:289 ,height:176,borderRadius:16, position:'relative', overflow:'hidden'}}>
+          <Image style={{width:289 , position:'absolute'}}  source={require('@/assets/images/vrr.png')}/>
+        </View>
+        <Text style={{fontSize: 16, fontWeight: 'bold', marginVertical: 10, paddingLeft:2}}>
+        New VR Headsets That Will Shape the Metaverse
+        </Text>
+        <View className="dateandtime" style={{width:'100%',flexDirection:'row', alignItems:'center',justifyContent:'space-between'}}>
+        <Text style={{ fontSize:10, color:'#333333' }}>By: Mason Eduard</Text>
+        <Text style={{ fontSize:10, color:'#828282', fontWeight:'light' }}>Oct 12, 2021
+          <Text> • </Text>
+          <Text> 3344 views </Text>
+        </Text>
+        </View>
+        </View>
+      </ScrollView>
+      <View style={{ width:'90%', height:2, backgroundColor:'#E0E0E0'}}/>
+     
+     <ScrollView contentContainerStyle={{
+      marginVertical: 10,
+      marginTop:15,
+      gap: 10,
+     }}
+     horizontal={true}
+     >
+      <View style={{flex:1, borderColor:'#BDBDBD' ,borderRadius:6, borderWidth:1,height:31, justifyContent:'center', paddingHorizontal:5}}>
+      <Text style={{fontSize: 14,color:'#828282', fontWeight: 'regular'}}>
+      Trending
+      </Text>
+      </View>
+     
+     </ScrollView>
+     <View style={{gap: 15, marginVertical:15}}>
+     <SmallDisplayCard/>
+     <SmallDisplayCard/>
+     <SmallDisplayCard/>
+     <SmallDisplayCard/>
+     <SmallDisplayCard/>
+     </View>
+      </View>
+    </SafeAreaView>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
 });
