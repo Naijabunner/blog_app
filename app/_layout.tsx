@@ -37,6 +37,12 @@ export default function RootLayout() {
             backgroundColor: '#fff'
           }
         }} />
+        <Stack.Screen name="Chat" options={{
+          headerShown: false,
+          contentStyle: {
+            backgroundColor: '#fff'
+          }
+        }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />

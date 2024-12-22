@@ -3,7 +3,31 @@ import React from 'react'
 import { Image, View,Text, Dimensions, Pressable } from 'react-native'
 import { green } from 'react-native-reanimated/lib/typescript/Colors'
 const {width,height} = Dimensions.get('window')
-const SmallDisplayCard = () => {
+
+interface CarouselCardProp{
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  link: string;
+  details: string;
+  author: string;
+  views: number;
+  date: string;
+}
+
+
+const SmallDisplayCard = ({ 
+  id,
+  title,
+  description,
+  imageUrl,
+  link,
+  details,
+  author,
+  views,
+  date
+}:CarouselCardProp) => {
     const router = useRouter()
     const handleNavigation = () => {
         router.push('/blogId')
@@ -23,7 +47,7 @@ const SmallDisplayCard = () => {
            
         </View>
         <Text style={{fontSize: 16, fontWeight: 'bold', marginVertical: 10, paddingLeft:2}}>
-        Augmented Reality Trends for 2022
+        {title}
             </Text> 
         </View>
       

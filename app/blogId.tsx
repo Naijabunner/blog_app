@@ -3,6 +3,7 @@ import React from 'react'
 import CustomInput from '@/components/CustomInput'
 import { HelloWave } from '@/components/HelloWave'
 import { ThemedView } from '@/components/ThemedView'
+import CustomHeader from '@/components/Header'
 
 const BlogId = () => {
 
@@ -10,15 +11,7 @@ const BlogId = () => {
     <View style={{ flex:1, padding: 15, paddingTop: 50, }} >
 
       <SafeAreaView style={{ flex: 1 }}>
-        <ThemedView style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: 8,
-          marginBottom: 10,
-        }}>
-          <CustomInput />
-          <HelloWave />
-        </ThemedView>
+        <CustomHeader/>
         <View style={{ width: 335, height: 204, borderRadius: 16, position: 'relative', overflow: 'hidden' }}>
           {/* <Image style={{width:335 , position:'absolute'}}  source={require('@/assets/images/vrr.png')}/> */}
           <Image style={{ width: 335, height: 204, position: 'absolute' }} source={{ uri: 'https://img.freepik.com/premium-photo/cat-sea-sunglasses-generative-ai_74760-621.jpg' }} />
